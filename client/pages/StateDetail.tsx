@@ -1,14 +1,21 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { STATES_AND_UTS } from "@shared/india-data";
+import { QUIZ_DATA, getDefaultQuestions } from "@shared/quiz-data";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, MessageCircle, Brain, MapPin, Users, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { InteractiveQuiz } from "@/components/InteractiveQuiz";
+import { AIChatbot } from "@/components/AIChatbot";
 
 export default function StateDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   
   const stateData = STATES_AND_UTS.find(state => state.slug === slug);
+
+  // Get quiz questions for this state
+  const quizData = QUIZ_DATA.find(quiz => quiz.stateSlug === slug);
+  const quizQuestions = quizData ? quizData.questions : getDefaultQuestions(stateData?.state_name || 'this region');
 
   if (!stateData) {
     return (
@@ -144,50 +151,22 @@ export default function StateDetail() {
             </div>
           </div>
 
-          {/* Quiz Section Placeholder */}
+          {/* Interactive Quiz Section */}
           <div className="bg-white rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold font-poppins text-gray-900 mb-6 flex items-center gap-3">
               <Brain className="w-6 h-6 text-green-600" />
               Interactive Quiz
             </h3>
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-lg p-6 text-center">
-              <p className="text-gray-600 font-poppins mb-4">
-                Test your knowledge about {stateData.state_name} with our interactive quiz!
-              </p>
-              <Button 
-                className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 font-poppins"
-                disabled
-              >
-                <Brain className="w-4 h-4 mr-2" />
-                Start Quiz (Coming Soon)
-              </Button>
-              <p className="text-sm text-gray-500 font-poppins mt-3">
-                Continue prompting to have me implement the interactive quiz feature.
-              </p>
-            </div>
+            <InteractiveQuiz questions={quizQuestions} stateName={stateData.state_name} />
           </div>
 
-          {/* AI Chatbot Placeholder */}
+          {/* AI Chatbot Section */}
           <div className="bg-white rounded-xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold font-poppins text-gray-900 mb-6 flex items-center gap-3">
               <MessageCircle className="w-6 h-6 text-indigo-600" />
               AI Assistant
             </h3>
-            <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-lg p-6 text-center">
-              <p className="text-gray-600 font-poppins mb-4">
-                Ask our AI assistant anything about {stateData.state_name}!
-              </p>
-              <Button 
-                className="bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 font-poppins"
-                disabled
-              >
-                <MessageCircle className="w-4 h-4 mr-2" />
-                Chat Now (Coming Soon)
-              </Button>
-              <p className="text-sm text-gray-500 font-poppins mt-3">
-                Continue prompting to have me implement the AI chatbot feature.
-              </p>
-            </div>
+            <AIChatbot stateSlug={stateData.slug} stateName={stateData.state_name} />
           </div>
         </div>
       </div>
