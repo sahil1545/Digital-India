@@ -8,6 +8,13 @@ export interface StateUT {
   official_languages?: string[];
   area?: string;
   description?: string;
+  famous_places?: string[];
+  culture_traditions?: string[];
+  festivals?: string[];
+  monuments?: string[];
+  underrated_facts?: string[];
+  cuisine?: string[];
+  economy?: string;
 }
 
 export const STATES_AND_UTS: StateUT[] = [
@@ -15,363 +22,831 @@ export const STATES_AND_UTS: StateUT[] = [
   {
     state_name: "Andhra Pradesh",
     capital: "Amaravati",
-    image_url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80",
+    image_url: "/Assets/andhra-pradesh.jpg",
     slug: "andhra-pradesh",
     type: "state",
     population: "49.4 million",
     official_languages: ["Telugu"],
-    area: "160,205 km²"
+    area: "160,205 km²",
+    famous_places: ["Tirupati", "Visakhapatnam", "Amaravati", "Vijayawada", "Kurnool"],
+    culture_traditions: ["Kuchipudi dance", "Carnatic music", "Telugu literature", "Temple architecture", "Classical arts"],
+    festivals: ["Ugadi", "Sankranti", "Dasara", "Deepavali", "Vinayaka Chaturthi"],
+    monuments: ["Tirupati Temple", "Lepakshi Temple", "Amaravati Stupa", "Undavalli Caves", "Belum Caves"],
+    underrated_facts: [
+      "Home to the world's second-largest beach - Visakhapatnam Beach",
+      "Tirupati is one of the richest temples in the world",
+      "Known as the 'Rice Bowl of India'",
+      "Has the longest coastline among all Indian states",
+      "Amaravati was the ancient capital of Satavahana dynasty"
+    ],
+    cuisine: ["Biryani", "Gongura pickle", "Pesarattu", "Pulihora", "Bobbatlu"],
+    economy: "Agriculture, IT, pharmaceuticals, and textiles. Major producer of rice, tobacco, and spices."
   },
   {
     state_name: "Arunachal Pradesh",
     capital: "Itanagar",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/arunachal-pradesh.png",
     slug: "arunachal-pradesh",
     type: "state",
     population: "1.4 million",
     official_languages: ["English"],
-    area: "83,743 km²"
+    area: "83,743 km²",
+    famous_places: ["Tawang", "Bomdila", "Ziro", "Pasighat", "Namdapha National Park"],
+    culture_traditions: ["Tribal festivals", "Bamboo handicrafts", "Traditional weaving", "Monpa culture", "Apatani culture"],
+    festivals: ["Losar", "Solung", "Mopin", "Reh", "Dree"],
+    monuments: ["Tawang Monastery", "Ita Fort", "Gompa Temple", "Bomdila Monastery", "Golden Pagoda"],
+    underrated_facts: [
+      "Home to over 26 major tribes and 100 sub-tribes",
+      "Tawang Monastery is the largest monastery in India",
+      "Known as the 'Land of the Rising Sun'",
+      "Has the highest diversity of orchids in India",
+      "Ziro Valley is a UNESCO World Heritage Site candidate"
+    ],
+    cuisine: ["Thukpa", "Momos", "Apong (rice beer)", "Bamboo shoot dishes", "Pika Pila"],
+    economy: "Agriculture, horticulture, and tourism. Known for apple orchards and organic farming."
   },
   {
     state_name: "Assam",
     capital: "Dispur",
-    image_url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+    image_url: "/Assets/assam.jpg",
     slug: "assam",
     type: "state",
     population: "31.2 million",
     official_languages: ["Assamese"],
-    area: "78,438 km²"
+    area: "78,438 km²",
+    famous_places: ["Kaziranga National Park", "Guwahati", "Majuli Island", "Sivasagar", "Tezpur"],
+    culture_traditions: ["Bihu dance", "Assamese silk (Muga, Pat, Eri)", "Satras (monasteries)", "Traditional music", "Handloom weaving"],
+    festivals: ["Bihu (Rongali, Kongali, Bhogali)", "Durga Puja", "Me-Dam-Me-Phi", "Ambubachi Mela"],
+    monuments: ["Kamakhya Temple", "Sivasagar Tank", "Rang Ghar", "Talatal Ghar", "Kareng Ghar"],
+    underrated_facts: [
+      "Produces more than half of India's tea",
+      "Kaziranga is home to two-thirds of the world's one-horned rhinoceros",
+      "Majuli is the world's largest river island",
+      "Muga silk is produced only in Assam",
+      "Has the oldest oil refinery in Asia (Digboi)"
+    ],
+    cuisine: ["Assam tea", "Khaar", "Masor Tenga", "Pitha", "Aloo Pitika"],
+    economy: "Tea production, oil and gas, agriculture, and tourism. Major tea exporter and petroleum producer."
   },
   {
     state_name: "Bihar",
     capital: "Patna",
-    image_url: "https://images.unsplash.com/photo-1633078654544-61b3455b9161?w=800&q=80",
+    image_url: "/Assets/bihar.jpg",
     slug: "bihar",
     type: "state",
     population: "104.1 million",
     official_languages: ["Hindi"],
-    area: "94,163 km²"
+    area: "94,163 km²",
+    famous_places: ["Bodh Gaya", "Nalanda", "Rajgir", "Vaishali", "Patna"],
+    culture_traditions: ["Madhubani painting", "Chhath Puja", "Bhojpuri culture", "Buddhist heritage", "Folk music"],
+    festivals: ["Chhath Puja", "Buddha Purnima", "Durga Puja", "Diwali", "Holi"],
+    monuments: ["Mahabodhi Temple", "Nalanda University ruins", "Vikramshila University", "Barabar Caves", "Patna Museum"],
+    underrated_facts: [
+      "Birthplace of Buddhism and Jainism",
+      "Nalanda was the world's first international university",
+      "Home to the world's oldest democracy (Vaishali)",
+      "Produces highest number of IAS officers in India",
+      "Chhath Puja is the most important festival, unique to Bihar"
+    ],
+    cuisine: ["Litti Chokha", "Sattu", "Khaja", "Thekua", "Bihari Kebab"],
+    economy: "Agriculture, education, and services. Major producer of vegetables, fruits, and grains."
   },
   {
     state_name: "Chhattisgarh",
     capital: "Raipur",
-    image_url: "https://images.unsplash.com/photo-1512492201907-7b0b0ad0b816?w=800&q=80",
+    image_url: "/Assets/chhattisgarh.jpg",
     slug: "chhattisgarh",
     type: "state",
     population: "25.5 million",
     official_languages: ["Hindi"],
-    area: "135,192 km²"
+    area: "135,192 km²",
+    famous_places: ["Raipur", "Bhilai", "Bastar", "Jagdalpur", "Chitrakote Falls"],
+    culture_traditions: ["Tribal culture", "Bastar art", "Dhokra metal craft", "Pandwani folk art", "Raut Nacha dance"],
+    festivals: ["Bastar Dussehra", "Hareli", "Pola", "Navakhai", "Goncha"],
+    monuments: ["Chitrakote Falls", "Tirathgarh Falls", "Bhoramdeo Temple", "Danteshwari Temple", "Sirpur"],
+    underrated_facts: [
+      "Known as the 'Rice Bowl of Central India'",
+      "Home to 42% of India's steel production",
+      "Chitrakote Falls is India's widest waterfall",
+      "Has the highest forest cover in India (44%)",
+      "Bastar Dussehra is the longest festival in the world (75 days)"
+    ],
+    cuisine: ["Chila", "Faraa", "Aamat", "Bafauri", "Sabudana Khichdi"],
+    economy: "Steel production, mining, agriculture, and power generation. Major producer of iron ore and coal."
   },
   {
     state_name: "Goa",
     capital: "Panaji",
-    image_url: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80",
+    image_url: "/Assets/goa.jpg",
     slug: "goa",
     type: "state",
     population: "1.5 million",
     official_languages: ["Konkani"],
-    area: "3,702 km²"
+    area: "3,702 km²",
+    famous_places: ["Panaji", "Margao", "Vasco da Gama", "Calangute Beach", "Anjuna Beach"],
+    culture_traditions: ["Portuguese influence", "Konkani culture", "Feni (local liquor)", "Carnival", "Folk dances"],
+    festivals: ["Carnival", "Shigmo", "Feast of St. Francis Xavier", "Ganesh Chaturthi", "Diwali"],
+    monuments: ["Basilica of Bom Jesus", "Se Cathedral", "Aguada Fort", "Chapora Fort", "Reis Magos Fort"],
+    underrated_facts: [
+      "Has the highest per capita income in India",
+      "Only state in India with two official languages (Konkani and Marathi)",
+      "Home to Asia's only floating casino",
+      "Has the smallest coastline among coastal states",
+      "Old Goa was once called 'Rome of the East'"
+    ],
+    cuisine: ["Fish curry and rice", "Bebinca", "Vindaloo", "Sorpotel", "Feni"],
+    economy: "Tourism, mining, and fishing. Major tourist destination with beautiful beaches and Portuguese heritage."
   },
   {
     state_name: "Gujarat",
     capital: "Gandhinagar",
-    image_url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+    image_url: "/Assets/gujarat.jpg",
     slug: "gujarat",
     type: "state",
     population: "60.4 million",
     official_languages: ["Gujarati"],
-    area: "196,244 km²"
+    area: "196,244 km²",
+    famous_places: ["Ahmedabad", "Surat", "Vadodara", "Gir National Park", "Rann of Kutch"],
+    culture_traditions: ["Garba dance", "Gujarati literature", "Patola silk", "Bandhani", "Wood carving"],
+    festivals: ["Navratri", "Uttarayan (Kite Festival)", "Rann Utsav", "Modhera Dance Festival", "Diwali"],
+    monuments: ["Sabarmati Ashram", "Rani ki Vav", "Sun Temple Modhera", "Dwarkadhish Temple", "Statue of Unity"],
+    underrated_facts: [
+      "Statue of Unity is the world's tallest statue (182 meters)",
+      "Home to the only natural habitat of Asiatic lions (Gir)",
+      "Rann of Kutch is the world's largest salt desert",
+      "Ahmedabad was India's first UNESCO World Heritage City",
+      "Gujarat has the longest coastline in India (1,600 km)"
+    ],
+    cuisine: ["Dhokla", "Thepla", "Fafda", "Gujarati Thali", "Undhiyu"],
+    economy: "Textiles, petrochemicals, pharmaceuticals, and agriculture. Major industrial hub and diamond cutting center."
   },
   {
     state_name: "Haryana",
     capital: "Chandigarh",
-    image_url: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80",
+    image_url: "/Assets/haryana.jpg",
     slug: "haryana",
     type: "state",
     population: "25.4 million",
     official_languages: ["Hindi"],
-    area: "44,212 km²"
+    area: "44,212 km²",
+    famous_places: ["Gurgaon", "Faridabad", "Panipat", "Kurukshetra", "Ambala"],
+    culture_traditions: ["Haryanvi folk music", "Phag dance", "Sang dance", "Traditional wrestling", "Cattle fairs"],
+    festivals: ["Teej", "Gangore", "Baisakhi", "Lohri", "Diwali"],
+    monuments: ["Kurukshetra", "Panipat Museum", "Sultanpur Bird Sanctuary", "Morni Hills", "Badkhal Lake"],
+    underrated_facts: [
+      "Has the highest per capita income among large states",
+      "Home to India's largest automobile manufacturing hub",
+      "Kurukshetra is where the Mahabharata war was fought",
+      "Produces highest number of Olympic medalists per capita",
+      "Gurgaon is known as the 'Millennium City'"
+    ],
+    cuisine: ["Bajra Khichdi", "Hara Dhania Cholia", "Singri ki Sabzi", "Kachri ki Sabzi", "Bathua Raita"],
+    economy: "Manufacturing, IT, agriculture, and automotive industries. Major contributor to India's GDP."
   },
   {
     state_name: "Himachal Pradesh",
     capital: "Shimla",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/himachal-pradesh.jpg",
     slug: "himachal-pradesh",
     type: "state",
     population: "6.9 million",
     official_languages: ["Hindi"],
-    area: "55,673 km²"
+    area: "55,673 km²",
+    famous_places: ["Shimla", "Manali", "Dharamshala", "Dalhousie", "Kullu"],
+    culture_traditions: ["Pahari culture", "Kullu Dussehra", "Nati dance", "Kangra painting", "Wood carving"],
+    festivals: ["Kullu Dussehra", "Losar", "Phulaich", "Halda", "Sair"],
+    monuments: ["Shimla Ridge", "Jakhu Temple", "Kangra Fort", "Baijnath Temple", "Key Monastery"],
+    underrated_facts: [
+      "Dharamshala is the residence of the Dalai Lama",
+      "Has the highest literacy rate in India (83.78%)",
+      "Shimla was the summer capital of British India",
+      "Home to Asia's oldest brewery (Kasauli)",
+      "Spiti Valley is one of the least populated regions in India"
+    ],
+    cuisine: ["Dham", "Siddu", "Babru", "Aktori", "Tudkiya Bhath"],
+    economy: "Tourism, horticulture, and hydropower. Known for apple production and hill stations."
   },
   {
     state_name: "Jharkhand",
     capital: "Ranchi",
-    image_url: "https://images.unsplash.com/photo-1512492201907-7b0b0ad0b816?w=800&q=80",
+    image_url: "/Assets/jharkhand.jpg",
     slug: "jharkhand",
     type: "state",
     population: "33.0 million",
     official_languages: ["Hindi"],
-    area: "79,716 km²"
+    area: "79,716 km²",
+    famous_places: ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh"],
+    culture_traditions: ["Tribal culture", "Chhau dance", "Jhumar dance", "Sohrai art", "Paitkar painting"],
+    festivals: ["Sarhul", "Karma", "Sohrai", "Tusu Parab", "Holi"],
+    monuments: ["Jagannath Temple Ranchi", "Betla National Park", "Hundru Falls", "Jonha Falls", "Dassam Falls"],
+    underrated_facts: [
+      "Known as the 'Land of Forests'",
+      "Produces 40% of India's mineral wealth",
+      "Home to the oldest iron and steel plant in India (Jamshedpur)",
+      "Has the highest concentration of tribal population",
+      "Rich in coal, iron ore, and mica reserves"
+    ],
+    cuisine: ["Dhuska", "Rugda", "Thekua", "Litti Chokha", "Handia"],
+    economy: "Mining, steel production, and power generation. Major producer of coal, iron ore, and minerals."
   },
   {
     state_name: "Karnataka",
     capital: "Bengaluru",
-    image_url: "https://images.unsplash.com/photo-1595655408940-d8f95d2f3e3e?w=800&q=80",
+    image_url: "/Assets/karnataka.jpg",
     slug: "karnataka",
     type: "state",
     population: "61.1 million",
     official_languages: ["Kannada"],
-    area: "191,791 km²"
+    area: "191,791 km²",
+    famous_places: ["Bengaluru", "Mysuru", "Hampi", "Coorg", "Mangaluru"],
+    culture_traditions: ["Yakshagana", "Bharatanatyam", "Carnatic music", "Kannada literature", "Mysore painting"],
+    festivals: ["Dasara", "Ugadi", "Karva Chauth", "Ganesh Chaturthi", "Makar Sankranti"],
+    monuments: ["Mysore Palace", "Hampi ruins", "Gol Gumbaz", "Belur Temple", "Halebidu Temple"],
+    underrated_facts: [
+      "Bengaluru is called the 'Silicon Valley of India'",
+      "Hampi is a UNESCO World Heritage Site",
+      "Home to the largest number of waterfalls in India",
+      "Mysore Dasara is celebrated for 10 days",
+      "Coorg produces 70% of India's coffee"
+    ],
+    cuisine: ["Bisi Bele Bath", "Mysore Pak", "Dosa", "Ragi Mudde", "Uttapam"],
+    economy: "IT, biotechnology, aerospace, and agriculture. Major tech hub and coffee producer."
   },
   {
     state_name: "Kerala",
     capital: "Thiruvananthapuram",
-    image_url: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=800&q=80",
+    image_url: "/Assets/kerala.jpg",
     slug: "kerala",
     type: "state",
     population: "33.4 million",
     official_languages: ["Malayalam"],
-    area: "38,852 km²"
+    area: "38,852 km²",
+    famous_places: ["Kochi", "Munnar", "Alleppey", "Wayanad", "Kovalam"],
+    culture_traditions: ["Kathakali", "Mohiniyattam", "Theyyam", "Kalaripayattu", "Onam"],
+    festivals: ["Onam", "Vishu", "Thrissur Pooram", "Attukal Pongala", "Christmas"],
+    monuments: ["Padmanabhaswamy Temple", "Mattancherry Palace", "Bekal Fort", "Jewish Synagogue", "St. Francis Church"],
+    underrated_facts: [
+      "Has the highest Human Development Index in India",
+      "100% literacy rate (first state to achieve this)",
+      "Backwaters of Kerala are unique to the world",
+      "Spice capital of India",
+      "First state to have internet connectivity in all villages"
+    ],
+    cuisine: ["Appam", "Puttu", "Kerala Sadya", "Karimeen Pollichathu", "Payasam"],
+    economy: "Tourism, remittances, spices, and IT. Known for high quality of life and social development."
   },
   {
     state_name: "Madhya Pradesh",
     capital: "Bhopal",
-    image_url: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800&q=80",
+    image_url: "/Assets/madhya-pradesh.jpg",
     slug: "madhya-pradesh",
     type: "state",
     population: "72.6 million",
     official_languages: ["Hindi"],
-    area: "308,245 km²"
+    area: "308,245 km²",
+    famous_places: ["Bhopal", "Indore", "Gwalior", "Khajuraho", "Sanchi"],
+    culture_traditions: ["Gond art", "Malwa culture", "Bundelkhand culture", "Folk dances", "Tribal traditions"],
+    festivals: ["Lokrang", "Khajuraho Dance Festival", "Tansen Music Festival", "Diwali", "Holi"],
+    monuments: ["Khajuraho Temples", "Sanchi Stupa", "Gwalior Fort", "Orchha", "Mandu"],
+    underrated_facts: [
+      "Known as the 'Heart of India'",
+      "Home to 3 UNESCO World Heritage Sites",
+      "Khajuraho temples are famous for erotic sculptures",
+      "Has the largest number of tigers in India",
+      "Sanchi Stupa is the oldest stone structure in India"
+    ],
+    cuisine: ["Poha", "Dal Bafla", "Bhutte ka Kees", "Seekh Kebabs", "Jalebi"],
+    economy: "Agriculture, mining, and tourism. Major producer of soybeans, wheat, and minerals."
   },
   {
     state_name: "Maharashtra",
     capital: "Mumbai",
-    image_url: "https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800&q=80",
+    image_url: "/Assets/maharashtra.jpg",
     slug: "maharashtra",
     type: "state",
     population: "112.4 million",
     official_languages: ["Marathi"],
-    area: "307,713 km²"
+    area: "307,713 km²",
+    famous_places: ["Mumbai", "Pune", "Aurangabad", "Nagpur", "Nashik"],
+    culture_traditions: ["Lavani dance", "Tamasha", "Marathi literature", "Ganpati festival", "Warli painting"],
+    festivals: ["Ganesh Chaturthi", "Gudi Padwa", "Diwali", "Holi", "Pola"],
+    monuments: ["Ajanta Caves", "Ellora Caves", "Gateway of India", "Shaniwar Wada", "Siddhivinayak Temple"],
+    underrated_facts: [
+      "Mumbai is the financial capital of India",
+      "Home to Bollywood, the world's largest film industry",
+      "Ajanta and Ellora caves are UNESCO World Heritage Sites",
+      "Has the highest GDP among all Indian states",
+      "Pune is known as the 'Oxford of the East'"
+    ],
+    cuisine: ["Vada Pav", "Pav Bhaji", "Misal Pav", "Puran Poli", "Poha"],
+    economy: "Finance, IT, manufacturing, and entertainment. Major industrial and commercial hub."
   },
   {
     state_name: "Manipur",
     capital: "Imphal",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/manipur.jpg",
     slug: "manipur",
     type: "state",
     population: "2.9 million",
     official_languages: ["Manipuri"],
-    area: "22,327 km²"
+    area: "22,327 km²",
+    famous_places: ["Imphal", "Loktak Lake", "Kangla Fort", "Ukhrul", "Churachandpur"],
+    culture_traditions: ["Manipuri dance (Ras Leela)", "Polo (originated here)", "Handloom weaving", "Thang Ta martial art", "Lai Haraoba"],
+    festivals: ["Yaoshang", "Ningol Chakouba", "Kut", "Gang-Ngai", "Cheiraoba"],
+    monuments: ["Kangla Fort", "Shree Govindajee Temple", "War Cemetery", "Loktak Lake", "Keibul Lamjao National Park"],
+    underrated_facts: [
+      "Polo was invented in Manipur",
+      "Loktak Lake is the largest freshwater lake in Northeast India",
+      "Manipuri dance is one of the major classical dance forms of India",
+      "Home to the only floating national park in the world (Keibul Lamjao)",
+      "Has the highest number of dance forms in India"
+    ],
+    cuisine: ["Eromba", "Singju", "Chamthong", "Ngari", "Kangsoi"],
+    economy: "Handloom, handicrafts, agriculture, and tourism. Known for traditional textiles and bamboo products."
   },
   {
     state_name: "Meghalaya",
     capital: "Shillong",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/meghalaya.jpg",
     slug: "meghalaya",
     type: "state",
     population: "3.0 million",
     official_languages: ["English"],
-    area: "22,429 km²"
+    area: "22,429 km²",
+    famous_places: ["Shillong", "Cherrapunji", "Mawsynram", "Dawki", "Nongpoh"],
+    culture_traditions: ["Khasi culture", "Garo culture", "Jaintia culture", "Nongkrem dance", "Wangala festival"],
+    festivals: ["Nongkrem", "Wangala", "Shad Suk Mynsiem", "Behdeinkhlam", "Christmas"],
+    monuments: ["Elephant Falls", "Living Root Bridges", "Mawphlang Sacred Grove", "Umiam Lake", "Don Bosco Museum"],
+    underrated_facts: [
+      "Mawsynram receives the highest rainfall in the world",
+      "Home to living root bridges (unique to Meghalaya)",
+      "Shillong is called the 'Scotland of the East'",
+      "Matrilineal society where property passes through women",
+      "Has the cleanest village in Asia (Mawlynnong)"
+    ],
+    cuisine: ["Jadoh", "Doh Khlieh", "Tungrymbai", "Pumaloi", "Nakham Bitchi"],
+    economy: "Agriculture, mining, and tourism. Known for coal, limestone, and natural beauty."
   },
   {
     state_name: "Mizoram",
     capital: "Aizawl",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/mizoram.jpg",
     slug: "mizoram",
     type: "state",
     population: "1.1 million",
     official_languages: ["Mizo", "English"],
-    area: "21,081 km²"
+    area: "21,081 km²",
+    famous_places: ["Aizawl", "Lunglei", "Champhai", "Serchhip", "Kolasib"],
+    culture_traditions: ["Cheraw dance (Bamboo dance)", "Mizo folk songs", "Traditional weaving", "Pawl Kut", "Chapchar Kut"],
+    festivals: ["Chapchar Kut", "Mim Kut", "Pawl Kut", "Thalfavang Kut", "Christmas"],
+    monuments: ["Reiek Tlang", "Durtlang Hills", "Tam Dil Lake", "Phawngpui Peak", "Vantawng Falls"],
+    underrated_facts: [
+      "Has the second highest literacy rate in India (91.58%)",
+      "Cheraw dance is performed with bamboo sticks",
+      "Most Christian state in India (87% Christian population)",
+      "Known for its pristine forests and biodiversity",
+      "Aizawl is built on steep hills with no traffic lights"
+    ],
+    cuisine: ["Bai", "Vawksa Rep", "Sawhchiar", "Koat Pitha", "Chhangban"],
+    economy: "Agriculture, handloom, and tourism. Known for bamboo products and organic farming."
   },
   {
     state_name: "Nagaland",
     capital: "Kohima",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/nagaland.jpg",
     slug: "nagaland",
     type: "state",
     population: "2.0 million",
     official_languages: ["English"],
-    area: "16,579 km²"
+    area: "16,579 km²",
+    famous_places: ["Kohima", "Dimapur", "Mokokchung", "Mon", "Wokha"],
+    culture_traditions: ["Hornbill Festival", "Naga warrior culture", "Headhunting history", "Folk dances", "Traditional music"],
+    festivals: ["Hornbill Festival", "Moatsu", "Sekrenyi", "Aoling", "Christmas"],
+    monuments: ["Kohima War Cemetery", "Dzükou Valley", "Khonoma Village", "Naga Heritage Village", "Intanki Wildlife Sanctuary"],
+    underrated_facts: [
+      "Hornbill Festival is called the 'Festival of Festivals'",
+      "Home to 16 major tribes, each with unique culture",
+      "Kohima was the site of one of the fiercest battles of WWII",
+      "Dzükou Valley is known as the 'Valley of Flowers of the Northeast'",
+      "Traditional Naga shawls are world-famous"
+    ],
+    cuisine: ["Smoked pork", "Bamboo shoot curry", "Axone (fermented soybean)", "Galho", "Zutho (rice beer)"],
+    economy: "Agriculture, handloom, and tourism. Known for organic produce and traditional crafts."
   },
   {
     state_name: "Odisha",
     capital: "Bhubaneswar",
-    image_url: "https://images.unsplash.com/photo-1633078654544-61b3455b9161?w=800&q=80",
+    image_url: "/Assets/odisha.jpg",
     slug: "odisha",
     type: "state",
     population: "42.0 million",
     official_languages: ["Odia"],
-    area: "155,707 km²"
+    area: "155,707 km²",
+    famous_places: ["Bhubaneswar", "Puri", "Konark", "Cuttack", "Rourkela"],
+    culture_traditions: ["Odissi dance", "Pattachitra painting", "Jagannath culture", "Chhau dance", "Sand art"],
+    festivals: ["Rath Yatra", "Durga Puja", "Kumar Purnima", "Nuakhai", "Makar Sankranti"],
+    monuments: ["Konark Sun Temple", "Jagannath Temple", "Lingaraja Temple", "Udayagiri Caves", "Dhauli"],
+    underrated_facts: [
+      "Konark Sun Temple is a UNESCO World Heritage Site",
+      "Rath Yatra in Puri is one of the largest religious processions",
+      "Home to the largest population of Olive Ridley turtles",
+      "Chilika Lake is Asia's largest brackish water lagoon",
+      "Odissi is one of the eight classical dance forms of India"
+    ],
+    cuisine: ["Pakhala", "Dalma", "Chhena Poda", "Rasagulla (originated here)", "Chingudi Jhola"],
+    economy: "Steel, mining, agriculture, and tourism. Major producer of iron ore and minerals."
   },
   {
     state_name: "Punjab",
     capital: "Chandigarh",
-    image_url: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80",
+    image_url: "/Assets/punjab.jpg",
     slug: "punjab",
     type: "state",
     population: "27.7 million",
     official_languages: ["Punjabi"],
-    area: "50,362 km²"
+    area: "50,362 km²",
+    famous_places: ["Amritsar", "Ludhiana", "Jalandhar", "Patiala", "Bathinda"],
+    culture_traditions: ["Bhangra dance", "Giddha dance", "Sikhism", "Punjabi literature", "Folk music"],
+    festivals: ["Baisakhi", "Lohri", "Gurpurab", "Diwali", "Hola Mohalla"],
+    monuments: ["Golden Temple", "Wagah Border", "Jallianwala Bagh", "Anandpur Sahib", "Sheesh Mahal"],
+    underrated_facts: [
+      "Golden Temple serves free meals to 100,000 people daily",
+      "Punjab is called the 'Granary of India'",
+      "Home to the largest Sikh population in the world",
+      "Produces 20% of India's wheat",
+      "Amritsar means 'Pool of Nectar'"
+    ],
+    cuisine: ["Makke di Roti and Sarson da Saag", "Butter Chicken", "Amritsari Kulcha", "Lassi", "Chole Bhature"],
+    economy: "Agriculture, manufacturing, and textiles. Major producer of wheat, rice, and cotton."
   },
   {
     state_name: "Rajasthan",
     capital: "Jaipur",
-    image_url: "https://images.unsplash.com/photo-1599661046827-dacde6376be3?w=800&q=80",
+    image_url: "/Assets/rajasthan.jpg",
     slug: "rajasthan",
     type: "state",
     population: "68.5 million",
     official_languages: ["Hindi"],
-    area: "342,239 km²"
+    area: "342,239 km²",
+    famous_places: ["Jaipur", "Udaipur", "Jodhpur", "Jaisalmer", "Pushkar"],
+    culture_traditions: ["Rajasthani folk music", "Ghoomar dance", "Kalbelia dance", "Miniature painting", "Blue pottery"],
+    festivals: ["Pushkar Fair", "Desert Festival", "Gangaur", "Teej", "Diwali"],
+    monuments: ["Hawa Mahal", "City Palace Udaipur", "Mehrangarh Fort", "Jaisalmer Fort", "Amber Fort"],
+    underrated_facts: [
+      "Largest state in India by area",
+      "Jaipur is called the 'Pink City'",
+      "Jaisalmer Fort is one of the few living forts in the world",
+      "Pushkar has the only Brahma temple in the world",
+      "Thar Desert is the most populated desert in the world"
+    ],
+    cuisine: ["Dal Baati Churma", "Laal Maas", "Gatte ki Sabzi", "Ker Sangri", "Bajre ki Roti"],
+    economy: "Tourism, mining, agriculture, and textiles. Major producer of marble, granite, and handicrafts."
   },
   {
     state_name: "Sikkim",
     capital: "Gangtok",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/sikkim.jpg",
     slug: "sikkim",
     type: "state",
     population: "0.6 million",
     official_languages: ["Nepali", "Sikkimese", "Lepcha", "Limbu"],
-    area: "7,096 km²"
+    area: "7,096 km²",
+    famous_places: ["Gangtok", "Pelling", "Yuksom", "Namchi", "Lachung"],
+    culture_traditions: ["Buddhist culture", "Lepcha culture", "Nepali culture", "Mask dance", "Traditional music"],
+    festivals: ["Losar", "Saga Dawa", "Tendong Lho Rum Faat", "Bumchu", "Dasain"],
+    monuments: ["Rumtek Monastery", "Pemayangtse Monastery", "Tashiding Monastery", "Enchey Monastery", "Buddha Park"],
+    underrated_facts: [
+      "First 100% organic state in India",
+      "Home to Kanchenjunga, the third highest peak in the world",
+      "Smallest and least populated state in India",
+      "Has the highest number of glaciers in India",
+      "100% literacy rate and cleanest state in India"
+    ],
+    cuisine: ["Thukpa", "Momos", "Gundruk", "Sinki", "Kinema"],
+    economy: "Tourism, agriculture, and hydropower. Known for organic farming and ecotourism."
   },
   {
     state_name: "Tamil Nadu",
     capital: "Chennai",
-    image_url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80",
+    image_url: "/Assets/tamil-nadu.jpg",
     slug: "tamil-nadu",
     type: "state",
     population: "72.1 million",
     official_languages: ["Tamil"],
-    area: "130,060 km²"
+    area: "130,060 km²",
+    famous_places: ["Chennai", "Coimbatore", "Madurai", "Ooty", "Kanyakumari"],
+    culture_traditions: ["Bharatanatyam", "Carnatic music", "Tamil literature", "Temple architecture", "Classical arts"],
+    festivals: ["Pongal", "Jallikattu", "Karthigai Deepam", "Tamil New Year", "Deepavali"],
+    monuments: ["Meenakshi Temple", "Brihadeeswara Temple", "Mahabalipuram", "Rameswaram Temple", "Thanjavur Palace"],
+    underrated_facts: [
+      "Tamil is one of the oldest living languages in the world",
+      "Mahabalipuram is a UNESCO World Heritage Site",
+      "Home to the world's second longest beach (Marina Beach)",
+      "Tamil cinema (Kollywood) is the second largest film industry in India",
+      "Jallikattu is an ancient bull-taming sport"
+    ],
+    cuisine: ["Dosa", "Idli", "Sambar", "Rasam", "Pongal"],
+    economy: "IT, manufacturing, textiles, and agriculture. Major industrial and software hub."
   },
   {
     state_name: "Telangana",
     capital: "Hyderabad",
-    image_url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80",
+    image_url: "/Assets/telangana.jpg",
     slug: "telangana",
     type: "state",
     population: "35.0 million",
     official_languages: ["Telugu"],
-    area: "112,077 km²"
+    area: "112,077 km²",
+    famous_places: ["Hyderabad", "Warangal", "Nizamabad", "Karimnagar", "Khammam"],
+    culture_traditions: ["Hyderabadi culture", "Deccani culture", "Perini dance", "Telugu literature", "Qawwali"],
+    festivals: ["Bathukamma", "Bonalu", "Sankranti", "Ugadi", "Ramzan"],
+    monuments: ["Charminar", "Golconda Fort", "Qutb Shahi Tombs", "Falaknuma Palace", "Warangal Fort"],
+    underrated_facts: [
+      "Youngest state in India (formed in 2014)",
+      "Hyderabad is called the 'City of Pearls'",
+      "Home to the world's largest film studio (Ramoji Film City)",
+      "Bathukamma is a unique flower festival",
+      "Hyderabadi Biryani is world-famous"
+    ],
+    cuisine: ["Hyderabadi Biryani", "Haleem", "Mirchi ka Salan", "Double ka Meetha", "Qubani ka Meetha"],
+    economy: "IT, pharmaceuticals, manufacturing, and agriculture. Major tech and pharma hub."
   },
   {
     state_name: "Tripura",
     capital: "Agartala",
-    image_url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+    image_url: "/Assets/tripura.jpg",
     slug: "tripura",
     type: "state",
     population: "3.7 million",
     official_languages: ["Bengali", "Tripuri"],
-    area: "10,486 km²"
+    area: "10,486 km²",
+    famous_places: ["Agartala", "Udaipur", "Dharmanagar", "Kailashahar", "Belonia"],
+    culture_traditions: ["Tripuri culture", "Garia dance", "Lebang Boomani", "Handloom weaving", "Bamboo crafts"],
+    festivals: ["Kharchi Puja", "Ker Puja", "Garia Puja", "Durga Puja", "Diwali"],
+    monuments: ["Ujjayanta Palace", "Neermahal", "Unakoti", "Tripura Sundari Temple", "Jagannath Temple"],
+    underrated_facts: [
+      "Smallest state in Northeast India",
+      "Unakoti has 10 million rock-cut sculptures",
+      "Neermahal is the only water palace in East India",
+      "Home to 19 indigenous tribes",
+      "Has the highest literacy rate in Northeast India"
+    ],
+    cuisine: ["Mui Borok", "Wahan Mosdeng", "Chakhwi", "Bangui", "Gudok"],
+    economy: "Agriculture, handloom, and tourism. Known for natural rubber, tea, and bamboo products."
   },
   {
     state_name: "Uttar Pradesh",
     capital: "Lucknow",
-    image_url: "https://images.unsplash.com/photo-1633078654544-61b3455b9161?w=800&q=80",
+    image_url: "/Assets/uttar-pradesh.jpg",
     slug: "uttar-pradesh",
     type: "state",
     population: "199.8 million",
     official_languages: ["Hindi"],
-    area: "240,928 km²"
+    area: "240,928 km²",
+    famous_places: ["Lucknow", "Agra", "Varanasi", "Allahabad", "Mathura"],
+    culture_traditions: ["Awadhi culture", "Kathak dance", "Chikankari embroidery", "Mughlai cuisine", "Ganga-Jamuni tehzeeb"],
+    festivals: ["Kumbh Mela", "Diwali", "Holi", "Eid", "Dussehra"],
+    monuments: ["Taj Mahal", "Agra Fort", "Fatehpur Sikri", "Varanasi Ghats", "Bara Imambara"],
+    underrated_facts: [
+      "Most populous state in India",
+      "Taj Mahal is one of the Seven Wonders of the World",
+      "Kumbh Mela is the largest religious gathering in the world",
+      "Varanasi is one of the oldest continuously inhabited cities",
+      "Home to the largest number of UNESCO World Heritage Sites in India"
+    ],
+    cuisine: ["Awadhi Biryani", "Kebabs", "Kachori", "Chaat", "Lassi"],
+    economy: "Agriculture, manufacturing, and services. Major producer of wheat, sugarcane, and potatoes."
   },
   {
     state_name: "Uttarakhand",
     capital: "Dehradun",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/uttarakhand.jpg",
     slug: "uttarakhand",
     type: "state",
     population: "10.1 million",
     official_languages: ["Hindi"],
-    area: "53,483 km²"
+    area: "53,483 km²",
+    famous_places: ["Dehradun", "Haridwar", "Rishikesh", "Mussoorie", "Nainital"],
+    culture_traditions: ["Garhwali culture", "Kumaoni culture", "Devbhoomi traditions", "Folk dances", "Pahari music"],
+    festivals: ["Kumbh Mela", "Uttarayani", "Phool Dei", "Harela", "Diwali"],
+    monuments: ["Har Ki Pauri", "Mansa Devi Temple", "Neelkanth Mahadev", "Nanda Devi Temple", "Badrinath Temple"],
+    underrated_facts: [
+      "Known as 'Devbhoomi' (Land of Gods)",
+      "Source of Ganga and Yamuna rivers",
+      "Home to Char Dham (four sacred shrines)",
+      "Rishikesh is the 'Yoga Capital of the World'",
+      "Valley of Flowers is a UNESCO World Heritage Site"
+    ],
+    cuisine: ["Kumaoni Raita", "Aloo Ke Gutke", "Bhatt ki Churkani", "Gahat ki Dal", "Mandua ki Roti"],
+    economy: "Tourism, agriculture, and hydropower. Known for pilgrimage tourism and hill stations."
   },
   {
     state_name: "West Bengal",
     capital: "Kolkata",
-    image_url: "https://images.unsplash.com/photo-1633078654544-61b3455b9161?w=800&q=80",
+    image_url: "/Assets/west-bengal.jpg",
     slug: "west-bengal",
     type: "state",
     population: "91.3 million",
     official_languages: ["Bengali"],
-    area: "88,752 km²"
+    area: "88,752 km²",
+    famous_places: ["Kolkata", "Darjeeling", "Sundarbans", "Digha", "Shantiniketan"],
+    culture_traditions: ["Bengali culture", "Rabindra Sangeet", "Durga Puja", "Baul music", "Bengali literature"],
+    festivals: ["Durga Puja", "Kali Puja", "Poila Boishakh", "Rath Yatra", "Christmas"],
+    monuments: ["Victoria Memorial", "Howrah Bridge", "Dakshineswar Temple", "Belur Math", "Sundarbans"],
+    underrated_facts: [
+      "Kolkata was the capital of British India until 1911",
+      "Sundarbans is the largest mangrove forest in the world",
+      "Home to Nobel laureates - Rabindranath Tagore and Mother Teresa",
+      "Darjeeling tea is world-famous",
+      "Durga Puja is the largest festival in the state"
+    ],
+    cuisine: ["Rasgulla", "Macher Jhol", "Mishti Doi", "Kosha Mangsho", "Sandesh"],
+    economy: "Agriculture, jute, tea, and services. Major producer of jute, tea, and rice."
   },
   
   // Union Territories
   {
     state_name: "Andaman and Nicobar Islands",
     capital: "Port Blair",
-    image_url: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80",
+    image_url: "/Assets/andaman-and-nicobar-islands.jpg",
     slug: "andaman-nicobar",
     type: "union_territory",
     population: "0.4 million",
     official_languages: ["Hindi", "English"],
-    area: "8,249 km²"
+    area: "8,249 km²",
+    famous_places: ["Port Blair", "Havelock Island", "Neil Island", "Ross Island", "Baratang"],
+    culture_traditions: ["Tribal culture", "Sentinelese", "Jarawa", "Onge", "Great Andamanese"],
+    festivals: ["Island Tourism Festival", "Subhash Mela", "Durga Puja", "Christmas", "Diwali"],
+    monuments: ["Cellular Jail", "Ross Island", "Anthropological Museum", "Chidiya Tapu", "Barren Island"],
+    underrated_facts: [
+      "Home to one of the last uncontacted tribes (Sentinelese)",
+      "Cellular Jail was called 'Kala Pani' (Black Water)",
+      "Has the only active volcano in India (Barren Island)",
+      "Radhanagar Beach is Asia's best beach",
+      "Home to unique marine biodiversity"
+    ],
+    cuisine: ["Seafood", "Coconut-based dishes", "Fish curry", "Lobster", "Crab"],
+    economy: "Tourism, fishing, and agriculture. Known for pristine beaches and marine life."
   },
   {
     state_name: "Chandigarh",
     capital: "Chandigarh",
-    image_url: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?w=800&q=80",
+    image_url: "/Assets/chandigarh.jpg",
     slug: "chandigarh",
     type: "union_territory",
     population: "1.1 million",
     official_languages: ["Hindi", "Punjabi"],
-    area: "114 km²"
+    area: "114 km²",
+    famous_places: ["Sector 17", "Rock Garden", "Sukhna Lake", "Rose Garden", "Elante Mall"],
+    culture_traditions: ["Modern architecture", "Planned city culture", "Punjabi culture", "Haryanvi culture", "Contemporary arts"],
+    festivals: ["Rose Festival", "Mango Festival", "Chandigarh Carnival", "Diwali", "Lohri"],
+    monuments: ["Rock Garden", "Sukhna Lake", "Capitol Complex", "Open Hand Monument", "Government Museum"],
+    underrated_facts: [
+      "Designed by Le Corbusier, a UNESCO World Heritage Site",
+      "First planned city of independent India",
+      "Capital of both Punjab and Haryana",
+      "Has the largest rose garden in Asia",
+      "One of the cleanest cities in India"
+    ],
+    cuisine: ["Butter Chicken", "Amritsari Kulcha", "Chole Bhature", "Lassi", "Tandoori dishes"],
+    economy: "Services, IT, and real estate. Known for high quality of life and urban planning."
   },
   {
     state_name: "Dadra and Nagar Haveli and Daman and Diu",
     capital: "Daman",
-    image_url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&q=80",
+    image_url: "/Assets/dadra-and-nagar-haveli-and-daman-and-diu.jpg",
     slug: "dadra-nagar-haveli-daman-diu",
     type: "union_territory",
     population: "0.6 million",
     official_languages: ["Hindi", "Gujarati"],
-    area: "603 km²"
+    area: "603 km²",
+    famous_places: ["Daman", "Diu", "Silvassa", "Nani Daman", "Moti Daman"],
+    culture_traditions: ["Portuguese influence", "Gujarati culture", "Tribal culture", "Folk dances", "Coastal traditions"],
+    festivals: ["Diwali", "Holi", "Garba", "Christmas", "New Year"],
+    monuments: ["Diu Fort", "Nani Daman Fort", "Moti Daman Fort", "Jampore Beach", "Church of Bom Jesus"],
+    underrated_facts: [
+      "Former Portuguese colonies",
+      "Diu has the longest coastline among Union Territories",
+      "Silvassa is the capital of Dadra and Nagar Haveli",
+      "Known for tax-free alcohol",
+      "Rich in Portuguese architecture"
+    ],
+    cuisine: ["Seafood", "Portuguese dishes", "Gujarati thali", "Fish curry", "Prawn dishes"],
+    economy: "Tourism, manufacturing, and agriculture. Known for beaches and Portuguese heritage."
   },
   {
     state_name: "Delhi",
     capital: "New Delhi",
-    image_url: "https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80",
+    image_url: "/Assets/delhi.jpg",
     slug: "delhi",
     type: "union_territory",
     population: "16.8 million",
     official_languages: ["Hindi", "English"],
-    area: "1,484 km²"
+    area: "1,484 km²",
+    famous_places: ["New Delhi", "Old Delhi", "Connaught Place", "Chandni Chowk", "India Gate"],
+    culture_traditions: ["Mughal culture", "Punjabi culture", "Multicultural", "Street food", "Historical heritage"],
+    festivals: ["Diwali", "Holi", "Eid", "Dussehra", "Republic Day"],
+    monuments: ["Red Fort", "India Gate", "Qutub Minar", "Lotus Temple", "Humayun's Tomb"],
+    underrated_facts: [
+      "Capital of India",
+      "Has been the capital of 7 different empires",
+      "Qutub Minar is the tallest brick minaret in the world",
+      "Home to the largest spice market in Asia (Khari Baoli)",
+      "Has the highest number of museums in India"
+    ],
+    cuisine: ["Chole Bhature", "Butter Chicken", "Parathas", "Chaat", "Kebabs"],
+    economy: "Services, IT, manufacturing, and government. Major economic and political hub."
   },
   {
     state_name: "Jammu and Kashmir",
     capital: "Srinagar (Summer), Jammu (Winter)",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/jammu-and-kashmir.jpg",
     slug: "jammu-kashmir",
     type: "union_territory",
     population: "12.5 million",
     official_languages: ["Hindi", "Urdu"],
-    area: "55,673 km²"
+    area: "55,673 km²",
+    famous_places: ["Srinagar", "Jammu", "Gulmarg", "Pahalgam", "Sonamarg"],
+    culture_traditions: ["Kashmiri culture", "Shikara rides", "Pashmina shawls", "Kashmiri music", "Wazwan cuisine"],
+    festivals: ["Eid", "Shivratri", "Baisakhi", "Lohri", "Navroz"],
+    monuments: ["Dal Lake", "Shalimar Bagh", "Nishat Bagh", "Jama Masjid", "Hazratbal Shrine"],
+    underrated_facts: [
+      "Known as 'Paradise on Earth'",
+      "Gulmarg has one of the highest cable cars in the world",
+      "Pashmina shawls are world-famous",
+      "Dal Lake is called the 'Jewel in the Crown of Kashmir'",
+      "Home to the only floating post office in India"
+    ],
+    cuisine: ["Wazwan", "Rogan Josh", "Gushtaba", "Yakhni", "Kashmiri Pulao"],
+    economy: "Tourism, handicrafts, and agriculture. Known for Pashmina, saffron, and apples."
   },
   {
     state_name: "Ladakh",
     capital: "Leh",
-    image_url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+    image_url: "/Assets/ladakh.jpg",
     slug: "ladakh",
     type: "union_territory",
     population: "0.3 million",
     official_languages: ["Hindi", "English"],
-    area: "59,146 km²"
+    area: "59,146 km²",
+    famous_places: ["Leh", "Nubra Valley", "Pangong Lake", "Kargil", "Drass"],
+    culture_traditions: ["Buddhist culture", "Tibetan culture", "Monasteries", "Ladakhi music", "Traditional festivals"],
+    festivals: ["Hemis Festival", "Losar", "Sindhu Darshan", "Ladakh Festival", "Matho Nagrang"],
+    monuments: ["Hemis Monastery", "Thiksey Monastery", "Diskit Monastery", "Pangong Lake", "Magnetic Hill"],
+    underrated_facts: [
+      "Known as 'Little Tibet'",
+      "Pangong Lake is one of the highest saltwater lakes in the world",
+      "Hemis Monastery is the largest and richest monastery in Ladakh",
+      "Khardung La is one of the highest motorable passes in the world",
+      "Home to the coldest inhabited place in India (Drass)"
+    ],
+    cuisine: ["Thukpa", "Momos", "Skyu", "Chutagi", "Butter Tea"],
+    economy: "Tourism, agriculture, and handicrafts. Known for adventure tourism and Buddhist monasteries."
   },
   {
     state_name: "Lakshadweep",
     capital: "Kavaratti",
-    image_url: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?w=800&q=80",
+    image_url: "/Assets/lakshadweep.jpg",
     slug: "lakshadweep",
     type: "union_territory",
     population: "0.06 million",
     official_languages: ["Malayalam", "English"],
-    area: "32 km²"
+    area: "32 km²",
+    famous_places: ["Kavaratti", "Agatti", "Bangaram", "Kadmat", "Minicoy"],
+    culture_traditions: ["Malayalam culture", "Islamic traditions", "Coconut crafts", "Traditional fishing", "Folk music"],
+    festivals: ["Eid", "Bakrid", "Muharram", "Milad-un-Nabi", "New Year"],
+    monuments: ["Kavaratti Mosque", "Ujra Mosque", "Marine Museum", "Lighthouse", "Coral Reefs"],
+    underrated_facts: [
+      "Smallest Union Territory in India",
+      "Consists of 36 islands, only 10 are inhabited",
+      "Home to some of the most pristine coral reefs in India",
+      "Only coral atolls in India",
+      "Known for its turquoise blue lagoons"
+    ],
+    cuisine: ["Seafood", "Coconut-based dishes", "Tuna curry", "Fish fry", "Coconut rice"],
+    economy: "Fishing, coconut cultivation, and tourism. Known for marine biodiversity and water sports."
   },
   {
     state_name: "Puducherry",
     capital: "Puducherry",
-    image_url: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=800&q=80",
+    image_url: "/Assets/puducherry.jpg",
     slug: "puducherry",
     type: "union_territory",
     population: "1.2 million",
     official_languages: ["Tamil", "French"],
-    area: "492 km²"
+    area: "492 km²",
+    famous_places: ["Puducherry", "Auroville", "Karaikal", "Yanam", "Mahe"],
+    culture_traditions: ["French influence", "Tamil culture", "Aurobindo philosophy", "Colonial architecture", "Spiritual traditions"],
+    festivals: ["Bastille Day", "Masi Magam", "Pongal", "Diwali", "Christmas"],
+    monuments: ["Aurobindo Ashram", "Auroville", "French War Memorial", "Promenade Beach", "Chunnambar Boat House"],
+    underrated_facts: [
+      "Former French colony (Pondicherry)",
+      "Auroville is an experimental township for world peace",
+      "Still has French street names and architecture",
+      "Only place in India where you can see French colonial heritage",
+      "Promenade Beach is one of the most beautiful beaches in India"
+    ],
+    cuisine: ["French cuisine", "Tamil cuisine", "Seafood", "Creole dishes", "Baguettes"],
+    economy: "Tourism, fishing, and manufacturing. Known for French heritage and spiritual tourism."
   }
 ];

@@ -3,8 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { MessageCircle, Send, Bot, User, Sparkles } from "lucide-react";
-import { ChatMessage, getChatbotResponse } from "@shared/chatbot-data";
+import { MessageCircle, Send, Bot, User, Sparkles, Mic, MicOff } from "lucide-react";
+import { ChatMessage, getChatbotResponse, type ChatbotResponse } from "@shared/chatbot-data";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface AIChatbotProps {
   stateSlug: string;
@@ -15,7 +16,7 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: '1',
-      content: `Hello! I'm your AI guide for ${stateName}. I can tell you about the culture, food, festivals, monuments, languages, and history of this amazing place. What would you like to know?`,
+      content: `Hello! I'm your Gehu AI assistant for ${stateName}. I can provide detailed information about all states and union territories of India, including their culture, food, festivals, monuments, languages, and history. What would you like to know?`,
       sender: 'bot',
       timestamp: new Date()
     }
@@ -39,6 +40,14 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
     scrollToBottom();
   }, [messages]);
 
+  const formatConversationHistory = (messages: ChatMessage[]): string => {
+    return messages
+      .map(msg => 
+        `${msg.sender === 'user' ? 'User' : 'Assistant'}: ${msg.content}`
+      )
+      .join('\n');
+  };
+
   const handleSendMessage = async (messageText?: string) => {
     const textToSend = messageText || inputMessage.trim();
     if (!textToSend) return;
@@ -51,13 +60,23 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
       timestamp: new Date()
     };
 
-    setMessages(prev => [...prev, userMessage]);
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
     setInputMessage('');
     setIsTyping(true);
 
+    // Format conversation history for context
+    const conversationHistory = formatConversationHistory(updatedMessages);
+    
     // Simulate typing delay
     setTimeout(() => {
-      const botResponse = getChatbotResponse(textToSend, stateSlug, stateName);
+      // Pass the entire conversation history for context
+      const botResponse = getChatbotResponse(
+        textToSend, 
+        stateSlug, 
+        stateName,
+        conversationHistory // Pass the conversation history
+      );
       
       const botMessage: ChatMessage = {
         id: (Date.now() + 1).toString(),
@@ -87,7 +106,7 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
   };
 
   return (
-    <Card className="w-full h-96 flex flex-col">
+    <Card className="w-full flex flex-col h-[600px] max-h-[80vh]">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-3 font-poppins">
           <div className="relative">
@@ -98,79 +117,124 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
         </CardTitle>
       </CardHeader>
       
-      <CardContent className="flex-1 flex flex-col p-0">
+      <CardContent className="flex flex-col h-[calc(100%-60px)] p-0">
         {/* Messages Container */}
-        <div className="flex-1 overflow-y-auto px-4 space-y-4 mb-4">
-          {messages.map((message) => (
-            <div
-              key={message.id}
-              className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-            >
-              {message.sender === 'bot' && (
-                <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                  <Bot className="w-4 h-4 text-indigo-600" />
-                </div>
-              )}
-              
-              <div
-                className={`max-w-[80%] p-3 rounded-lg font-poppins ${
-                  message.sender === 'user'
-                    ? 'bg-blue-500 text-white rounded-br-sm'
-                    : 'bg-gray-100 text-gray-900 rounded-bl-sm'
-                }`}
+        <div className="flex-1 overflow-y-auto px-4 space-y-4 py-2 flex flex-col">
+          <AnimatePresence>
+            {messages.map((message, index) => (
+              <motion.div
+                key={message.id}
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className={`flex gap-3 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                <p className="text-sm leading-relaxed">{message.content}</p>
-                <p className={`text-xs mt-1 ${
-                  message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
-                }`}>
-                  {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </p>
-              </div>
-              
-              {message.sender === 'user' && (
-                <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                  <User className="w-4 h-4 text-blue-600" />
-                </div>
-              )}
-            </div>
-          ))}
-          
+                {message.sender === 'bot' && (
+                  <motion.div
+                    className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <Bot className="w-4 h-4 text-primary" />
+                  </motion.div>
+                )}
+
+                <motion.div
+                  className={`max-w-[80%] p-3 rounded-lg font-poppins break-words ${
+                    message.sender === 'user'
+                      ? 'bg-primary text-primary-foreground rounded-br-sm'
+                      : 'bg-muted text-muted-foreground rounded-bl-sm'
+                  }`}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <p className="text-sm leading-relaxed">{message.content}</p>
+                  <p className={`text-xs mt-1 ${
+                    message.sender === 'user' ? 'text-primary-foreground/70' : 'text-muted-foreground'
+                  }`}>
+                    {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </p>
+                </motion.div>
+
+                {message.sender === 'user' && (
+                  <motion.div
+                    className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0"
+                    whileHover={{ scale: 1.1 }}
+                  >
+                    <User className="w-4 h-4 text-primary" />
+                  </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+
           {/* Typing Indicator */}
-          {isTyping && (
-            <div className="flex gap-3 justify-start">
-              <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center flex-shrink-0">
-                <Bot className="w-4 h-4 text-indigo-600" />
-              </div>
-              <div className="bg-gray-100 text-gray-900 p-3 rounded-lg rounded-bl-sm">
-                <div className="flex gap-1">
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                  <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+          <AnimatePresence>
+            {isTyping && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="flex gap-3 justify-start"
+              >
+                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Bot className="w-4 h-4 text-primary" />
                 </div>
-              </div>
-            </div>
-          )}
-          
-          <div ref={messagesEndRef} />
+                <div className="bg-muted text-muted-foreground p-3 rounded-lg rounded-bl-sm">
+                  <div className="flex gap-1">
+                    <motion.div
+                      className="w-2 h-2 bg-muted-foreground rounded-full"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 0.6, repeat: Infinity }}
+                    />
+                    <motion.div
+                      className="w-2 h-2 bg-muted-foreground rounded-full"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 0.6, repeat: Infinity, delay: 0.1 }}
+                    />
+                    <motion.div
+                      className="w-2 h-2 bg-muted-foreground rounded-full"
+                      animate={{ y: [0, -5, 0] }}
+                      transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
+                    />
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div ref={messagesEndRef} className="min-h-[1px]" />
         </div>
 
         {/* Suggestions */}
-        {suggestions.length > 0 && (
-          <div className="px-4 mb-3">
-            <div className="flex flex-wrap gap-2">
-              {suggestions.map((suggestion, index) => (
-                <Badge
-                  key={index}
-                  variant="outline"
-                  className="cursor-pointer hover:bg-blue-50 hover:border-blue-300 transition-colors font-poppins text-xs"
-                  onClick={() => handleSuggestionClick(suggestion)}
-                >
-                  {suggestion}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        )}
+        <AnimatePresence>
+          {suggestions.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="px-4 mb-3"
+            >
+              <div className="flex flex-wrap gap-2">
+                {suggestions.map((suggestion, index) => (
+                  <motion.div
+                    key={suggestion}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <Badge
+                      variant="outline"
+                      className="cursor-pointer hover:bg-primary/10 hover:border-primary/50 transition-colors font-poppins text-xs"
+                      onClick={() => handleSuggestionClick(suggestion)}
+                    >
+                      {suggestion}
+                    </Badge>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Input Area */}
         <div className="border-t p-4">
@@ -183,14 +247,16 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
               className="flex-1 font-poppins"
               disabled={isTyping}
             />
-            <Button
-              onClick={() => handleSendMessage()}
-              disabled={!inputMessage.trim() || isTyping}
-              size="sm"
-              className="bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600"
-            >
-              <Send className="w-4 h-4" />
-            </Button>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                onClick={() => handleSendMessage()}
+                disabled={!inputMessage.trim() || isTyping}
+                size="sm"
+                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary"
+              >
+                <Send className="w-4 h-4" />
+              </Button>
+            </motion.div>
           </div>
         </div>
       </CardContent>
