@@ -18,7 +18,7 @@ export default function StateDetail() {
 
   // Get quiz questions for this state
   const quizData = QUIZ_DATA.find(quiz => quiz.stateSlug === slug);
-  const quizQuestions = quizData ? quizData.questions : getDefaultQuestions(stateData?.state_name || 'this region');
+  const quizQuestions = quizData ? quizData.questions : getDefaultQuestions(stateData?.state_name || 'this region', stateData?.slug || '');
 
   if (!stateData) {
     return (
