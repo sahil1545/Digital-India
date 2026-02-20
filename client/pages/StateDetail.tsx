@@ -50,7 +50,7 @@ export default function StateDetail() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-6">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -108,7 +108,7 @@ export default function StateDetail() {
 
       {/* Hero Section */}
       <motion.div
-        className="relative h-96 overflow-hidden"
+        className="relative h-64 sm:h-80 md:h-96 overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -134,7 +134,7 @@ export default function StateDetail() {
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           <motion.h2
-            className="text-3xl md:text-5xl font-bold font-poppins mb-2"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold font-poppins mb-2"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.7 }}
@@ -142,7 +142,7 @@ export default function StateDetail() {
             Welcome to {stateData.state_name}
           </motion.h2>
           <motion.p
-            className="text-lg font-poppins font-light opacity-90"
+            className="text-sm sm:text-base md:text-lg font-poppins font-light opacity-90"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.9 }}
@@ -153,9 +153,9 @@ export default function StateDetail() {
       </motion.div>
 
       {/* Quick Stats */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-8">
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -172,8 +172,8 @@ export default function StateDetail() {
             >
               <MapPin className="w-8 h-8 text-primary mx-auto mb-3" />
             </motion.div>
-            <h3 className="font-poppins font-semibold text-card-foreground mb-1">Capital</h3>
-            <p className="text-muted-foreground font-poppins">{stateData.capital}</p>
+            <h3 className="text-sm sm:text-base font-poppins font-semibold text-card-foreground mb-1">Capital</h3>
+            <p className="text-xs sm:text-sm text-muted-foreground font-poppins">{stateData.capital}</p>
           </motion.div>
           <motion.div
             className="bg-card rounded-xl p-6 shadow-lg text-center border hover:shadow-xl transition-all duration-300"
@@ -254,7 +254,7 @@ export default function StateDetail() {
                 {stateData.famous_places.map((place, index) => (
                   <motion.div
                     key={index}
-                    className="flex items-center gap-3 p-3 bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer"
+                    className="flex items-center gap-2 sm:gap-3 p-2 sm:p-3 bg-primary/5 rounded-lg hover:bg-primary/10 transition-colors cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
@@ -266,7 +266,7 @@ export default function StateDetail() {
                       animate={{ scale: 1 }}
                       transition={{ delay: 0.8 + index * 0.1 }}
                     />
-                    <span className="font-poppins text-card-foreground">{place}</span>
+                    <span className="text-sm sm:text-base font-poppins text-card-foreground">{place}</span>
                   </motion.div>
                 ))}
               </div>

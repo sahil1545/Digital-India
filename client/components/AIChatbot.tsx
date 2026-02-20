@@ -106,7 +106,7 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
   };
 
   return (
-    <Card className="w-full flex flex-col h-[600px] max-h-[80vh]">
+    <Card className="w-full h-[500px] sm:h-[600px] max-h-[80vh] flex flex-col">
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-3 font-poppins">
           <div className="relative">
@@ -140,14 +140,14 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
                 )}
 
                 <motion.div
-                  className={`max-w-[80%] p-3 rounded-lg font-poppins break-words ${
+                  className={`max-w-[85%] sm:max-w-[80%] p-2 sm:p-3 rounded-lg font-poppins break-words ${
                     message.sender === 'user'
                       ? 'bg-primary text-primary-foreground rounded-br-sm'
                       : 'bg-muted text-muted-foreground rounded-bl-sm'
                   }`}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <p className="text-sm leading-relaxed">{message.content}</p>
+                  <p className="text-xs sm:text-sm leading-relaxed">{message.content}</p>
                   <p className={`text-xs mt-1 ${
                     message.sender === 'user' ? 'text-primary-foreground/70' : 'text-muted-foreground'
                   }`}>
@@ -214,7 +214,7 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
               exit={{ opacity: 0, height: 0 }}
               className="px-4 mb-3"
             >
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1 sm:gap-2">
                 {suggestions.map((suggestion, index) => (
                   <motion.div
                     key={suggestion}
@@ -224,7 +224,7 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
                   >
                     <Badge
                       variant="outline"
-                      className="cursor-pointer hover:bg-primary/10 hover:border-primary/50 transition-colors font-poppins text-xs"
+                      className="cursor-pointer hover:bg-primary/10 hover:border-primary/50 transition-colors font-poppins text-[10px] sm:text-xs"
                       onClick={() => handleSuggestionClick(suggestion)}
                     >
                       {suggestion}
@@ -237,14 +237,14 @@ export function AIChatbot({ stateSlug, stateName }: AIChatbotProps) {
         </AnimatePresence>
 
         {/* Input Area */}
-        <div className="border-t p-4">
+        <div className="border-t p-3 sm:p-4">
           <div className="flex gap-2">
             <Input
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder={`Ask me anything about ${stateName}...`}
-              className="flex-1 font-poppins"
+              className="flex-1 font-poppins text-sm sm:text-base"
               disabled={isTyping}
             />
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
