@@ -1,27 +1,27 @@
 # Deployment Guide
 
-## Netlify Deployment
+## Vercel Deployment
 
-This project is configured for Netlify deployment with serverless functions.
+This project is configured for Vercel deployment with serverless functions.
 
 ### Build Process
 1. Client builds to `dist/spa/`
-2. Serverless functions are in `netlify/functions/`
-3. API routes are proxied via redirects
+2. Server builds to `dist/server/`
+3. API routes handled via `/api/index.ts`
 
 ### Environment Variables
-Set these in your Netlify dashboard:
+Set these in your Vercel dashboard:
 - `PING_MESSAGE` - Custom ping response message
 
 ### Deployment Commands
-- Build: `npm run build:netlify`
-- Functions automatically built from `netlify/functions/`
+- Build: `npm run build`
+- Functions automatically built from `api/` directory
 
 ### API Routing
-All `/api/*` requests are redirected to `/.netlify/functions/api/:splat`
+All `/api/*` requests are rewritten to `/api/index`
 
 ### Dependencies
 Critical dependencies for deployment:
-- `serverless-http` - Express serverless wrapper
 - `express` - Web framework
 - `cors` - Cross-origin resource sharing
+- `dotenv` - Environment variable handling
